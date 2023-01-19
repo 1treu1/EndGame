@@ -180,59 +180,21 @@ jobs:
           name: build-Android
           path: build/Android
 
-  name: Build and Deploy
+  deployPages:
+    needs: buildWebGL
+    name: Deploy to Github Pages 🚀
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-  on:
-    push:
-      branches: [ master ]
+      - uses: actions/download-artifact@v2
+        with:
+          name: build-WebGL
+          path: build
 
-  jobs:
-    build-and-deploy:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v2.3.1
-          with: 
-            persist-credentials: false
-
-        - name: Set Ruby 2.7
-          uses: actions/setup-ruby@v1
-          with:
-            ruby-version: 2.7
-
-        - name: Install and Build
-          run: |
-            gem install bundler
-            bundle install
-            bundle exec jekyll build
-          
-        - name: Deploy
-          uses: JamesIves/github-pages-deploy-action@3.6.2
-          with:
-            ACCESS_TOKEN: $
-            BRANCH: built
-            FOLDER: _site
-            CLEAN: true
-
-#  deployPages:
-#    needs: buildWebGL
-#    name: Deploy to Github Pages 🚀
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Checkout code
-#        uses: actions/checkout@v2
-#
-#      - uses: actions/download-artifact@v2
-#        with:
-#          name: build-WebGL
-#          path: build
-#
-#      - name: Display structure of root files
-#        run: ls -R
-#        working-directory: build/WebGL
-#
-#      - name: Deploy 🚀
-#        uses: JamesIves/github-pages-deploy-action@4.1.4
-#        with:
-#          branch: gh-pages
-#          folder: build/WebGL
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: build/WebGL
