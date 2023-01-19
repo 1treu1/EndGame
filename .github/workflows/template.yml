@@ -180,26 +180,64 @@ jobs:
           name: build-Android
           path: build/Android
 
+name: Deploy GitHub Pages
 
-  deployPages:
-    needs: buildWebGL
-    name: Deploy to Github Pages 🚀
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v2
-
-      - uses: actions/download-artifact@v2
         with:
-          name: build-WebGL
-          path: build
+          persist-credentials: false
 
-      - name: Display structure of root files
-        run: ls -R
-        working-directory: build/WebGL
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+      - uses: actions/cache@v2.1.4
+        id: node-modules
         with:
-          branch: gh-pages
-          folder: build/WebGL
+          path: node_modules/
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+
+      - name: Install Deps
+        if: steps.node-modules.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile
+
+      - name: Build Template
+        run: yarn run build
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   /* 注意：这行是新加的 */
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: dist
+
+#  deployPages:
+#    needs: buildWebGL
+#    name: Deploy to Github Pages 🚀
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v2
+#
+#      - uses: actions/download-artifact@v2
+#        with:
+#          name: build-WebGL
+#          path: build
+#
+#      - name: Display structure of root files
+#        run: ls -R
+#        working-directory: build/WebGL
+#
+#      - name: Deploy 🚀
+#        uses: JamesIves/github-pages-deploy-action@4.1.4
+#        with:
+#          branch: gh-pages
+#          folder: build/WebGL
