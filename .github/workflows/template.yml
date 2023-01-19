@@ -194,7 +194,9 @@ jobs:
           path: build
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+        uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
+          ACCESS_TOKEN: ${{ secrets.GH_DOCS }}
           branch: main
           folder: build/WebGL
+          CLEAN: true

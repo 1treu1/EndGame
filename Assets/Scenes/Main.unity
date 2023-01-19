@@ -467,6 +467,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1029116667}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1231031517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1231031518}
+  - component: {fileID: 1231031519}
+  m_Layer: 0
+  m_Name: Inside
+  m_TagString: Floor
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1231031518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231031517}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2624307248944865295}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1231031519
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231031517}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.065469, y: 0.7416962, z: 5.67154}
+  m_Center: {x: -0.0064044, y: -0.12915179, z: -0.20496726}
 --- !u!1 &1728119719
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,6 +835,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1029116668}
+  - {fileID: 1231031518}
   m_Father: {fileID: 8391740859744374630}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -924,7 +970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3841200624748088505, guid: 9d86e52207626ec48934830477d31b4c, type: 3}
       propertyPath: m_Height
-      value: 2.1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4147751811936180500, guid: 9d86e52207626ec48934830477d31b4c, type: 3}
       propertyPath: m_Name
@@ -1242,7 +1288,7 @@ GameObject:
   - component: {fileID: 8933793808609100921}
   m_Layer: 0
   m_Name: house_roof_001
-  m_TagString: Untagged
+  m_TagString: Roof
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1277,5 +1323,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.815216, y: 0.398237, z: 1.9537086}
-  m_Center: {x: 0, y: 0.113448024, z: 4.441157}
+  m_Size: {x: 6.815216, y: 0.46790048, z: 2.5670776}
+  m_Center: {x: 0, y: 0.14827974, z: 4.134472}
