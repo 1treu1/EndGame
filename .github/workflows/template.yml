@@ -180,44 +180,39 @@ jobs:
           name: build-Android
           path: build/Android
 
-  name: Deploy GitHub Pages
+  name: Build and Deploy
 
   on:
     push:
-      branches:
-        - main
+      branches: [ master ]
 
   jobs:
-    deploy:
+    build-and-deploy:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
-          uses: actions/checkout@v2
-          with:
+          uses: actions/checkout@v2.3.1
+          with: 
             persist-credentials: false
 
-        - uses: actions/cache@v2.1.4
-          id: node-modules
+        - name: Set Ruby 2.7
+          uses: actions/setup-ruby@v1
           with:
-            path: node_modules/
-            key: ${{ runner.os }}-node-modules-${{ hashFiles('yarn.lock') }}
-            restore-keys: |
-              ${{ runner.os }}-node-modules-
+            ruby-version: 2.7
 
-        - name: Install Deps
-          if: steps.node-modules.outputs.cache-hit != 'true'
-          run: yarn install --frozen-lockfile
-
-        - name: Build Template
-          run: yarn run build
-
+        - name: Install and Build
+          run: |
+            gem install bundler
+            bundle install
+            bundle exec jekyll build
+          
         - name: Deploy
-          uses: JamesIves/github-pages-deploy-action@releases/v3
+          uses: JamesIves/github-pages-deploy-action@3.6.2
           with:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   /* 注意：这行是新加的 */
-            ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-            BRANCH: gh-pages
-            FOLDER: dist
+            ACCESS_TOKEN: $
+            BRANCH: built
+            FOLDER: _site
+            CLEAN: true
 
 #  deployPages:
 #    needs: buildWebGL
