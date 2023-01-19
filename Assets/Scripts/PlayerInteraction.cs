@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject deck;
     void Start()
     {
         
@@ -14,5 +15,27 @@ public class PlayerInteraction : MonoBehaviour
     void Update()
     {
         
+    }
+    private void OnTriggerStay(Collider other)
+    {
+       
+        if (other.CompareTag("Deck"))
+        {
+            Debug.Log("Deck");
+            deck = other.gameObject.transform.GetChild(0).gameObject;
+            deck.SetActive(false);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+
+        if (other.CompareTag("Deck"))
+        {
+            Debug.Log("Exit Deck");
+            deck = other.gameObject.transform.GetChild(0).gameObject;
+            deck.SetActive(true);
+        }
+
     }
 }
