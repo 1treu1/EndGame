@@ -180,23 +180,27 @@ jobs:
           name: build-Android
           path: build/Android
 
-  deployPages:
-    needs: buildWebGL
-    name: Deploy to Github Pages 🚀
+  deployToGitHubPages:
+    name: Deploy to the Web via GitHub Pages
     runs-on: ubuntu-latest
+    needs: buildWebGL
+    if: github.event.action == 'published' || (contains(github.event.inputs.workflow_mode, 'release') && contains(github.event.inputs.workflow_mode, 'WebGL'))
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - uses: actions/download-artifact@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Download WebGL Artifact
+        uses: actions/download-artifact@v3
         with:
-          name: build-WebGL
-          path: build
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+          name: cgs-WebGL
+          path: build/WebGL
+      - name: Copy the WebGL build artifacts to the GitHub Pages directory
+        env:
+          WEBGL_BUILD_PATH: ${{ format('{0}/build/WebGL', github.workspace) }}
+          WEBGL_PAGES_PATH: ${{ format('{0}/docs/WebGL', github.workspace) }}
+        run: find $WEBGL_BUILD_PATH -type f -name "**WebGL.*" -exec cp {} $WEBGL_PAGES_PATH \;
+      - name: Deploy to GitHub Pages
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          ACCESS_TOKEN: ${{ secrets.UNITY_LICENSE }}
           branch: main
-          folder: build/WebGL
-          CLEAN: true
+          file_pattern: docs/**
+          commit_message: Deploy to GitHub Pages
