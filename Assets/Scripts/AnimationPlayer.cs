@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class AnimationPlayer : MonoBehaviour
 {
@@ -10,8 +11,10 @@ public class AnimationPlayer : MonoBehaviour
     private float speedZ = 0.0f;
     public float acceleration = 2.5f;
     public float desacceleration = 2.5f;
+    public PlayerInput playerInput;
     void Start()
     {
+        playerInput = GetComponent<PlayerInput>();
         animator = GetComponent<Animator>();
         speedZ = 0.01f;
     }
@@ -33,15 +36,16 @@ public class AnimationPlayer : MonoBehaviour
     void Update()
     {
         //Input para hacer la animacion suave
-        bool forwardPressed = Input.GetKey("w");
-        bool backPressed = Input.GetKey("s");
-        bool leftPressed = Input.GetKey("a");
-        bool rightPressed = Input.GetKey("d");
-
+        bool forwardPressed = playerInput.actions["Animation"].IsPressed();
+        //bool backPressed = Input.GetKey("s");
+        //bool leftPressed = Input.GetKey("a");
+        //bool rightPressed = Input.GetKey("d");
+        //Debug.Log(forwardPressed);
         if (forwardPressed  && speedX <= 1.0f)
         {
             speedX += Time.deltaTime * acceleration;
         }
+        /*
         if (backPressed && speedX <= 1.0f)
         {
             speedX += Time.deltaTime * acceleration;
@@ -53,12 +57,13 @@ public class AnimationPlayer : MonoBehaviour
         if (rightPressed && speedX <= 1.0f)
         {
             speedX += Time.deltaTime * acceleration;
-        }
+        }*/
 
 
 
 
-        if (!forwardPressed &&!backPressed && !leftPressed && !rightPressed && speedX > 0.0f)
+        //if (!forwardPressed &&!backPressed && !leftPressed && !rightPressed && speedX > 0.0f)
+        if (!forwardPressed && speedX > 0.0f)
         {
             speedX -= Time.deltaTime * acceleration;
             if (speedX < 0.0f)
