@@ -320,6 +320,7 @@ GameObject:
   - component: {fileID: 6440832353701224348}
   - component: {fileID: 1400354400383039178}
   - component: {fileID: 3791424836445857274}
+  - component: {fileID: 898600646}
   m_Layer: 0
   m_Name: house_anex_001
   m_TagString: Untagged
@@ -392,6 +393,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &898600646
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5539616761027102294}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6082406642399371180, guid: e538fdbe39249764dbd2225cceb3b35d, type: 3}
 --- !u!1 &6654547289138429062
 GameObject:
   m_ObjectHideFlags: 0

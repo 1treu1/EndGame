@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
     public float speed = 2.5f;
     public float rotationSpeed;
     public PlayerInput playerinput;
+    public float jumpHeight = 3;
+    Vector3 velocity;
+    public float gravity = -9.81f;
 
     private void Start()
     {
@@ -31,10 +34,14 @@ public class PlayerController : MonoBehaviour
         
         if(move != Vector3.zero)
         {
-            Quaternion rotacion = Quaternion.LookRotation(move, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotacion, rotationSpeed * Time.deltaTime);
+            Rotation(move);
         }
-        
 
+        
+    }
+    void Rotation(Vector3 move)
+    {
+        Quaternion rotacion = Quaternion.LookRotation(move, Vector3.up);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotacion, rotationSpeed * Time.deltaTime);
     }
 }

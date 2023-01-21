@@ -78,8 +78,8 @@ public class AnimationPlayer : MonoBehaviour
     }
     void AnimationFire()
     {
-        if (speedZ <= 1.0f)
-            speedZ += Time.deltaTime * acceleration;
+        if (speedZ <= 0.5f)
+            speedZ += Time.deltaTime * acceleration; 
     }
     void AnimationNoFire()
     {
@@ -87,5 +87,6 @@ public class AnimationPlayer : MonoBehaviour
             speedZ -= Time.deltaTime * acceleration;
         if (speedZ < 0.0f)
             speedZ = 0.01f;
+
     }
 }

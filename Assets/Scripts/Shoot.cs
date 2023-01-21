@@ -11,6 +11,9 @@ public class Shoot : MonoBehaviour
     public delegate void NoShooting();
     public static event NoShooting OnNoShoot;
     public PlayerInput playerinput;
+    public Transform spawnBullet;
+    public GameObject bullet;
+    public float speed = 10f;
     void Start()
     {
         playerinput = GetComponent<PlayerInput>();
@@ -23,6 +26,7 @@ public class Shoot : MonoBehaviour
         if (playerinput.actions["Shoot"].IsPressed())
         {
             Debug.Log("Fire");
+            Fire();
             OnShoot();
         }
         else
@@ -30,5 +34,12 @@ public class Shoot : MonoBehaviour
             OnNoShoot();
         }
         
+    }
+    void Fire()
+    {
+        GameObject newBullet = Instantiate(bullet, spawnBullet.position, spawnBullet.rotation);
+        Rigidbody rb = newBullet.GetComponent<Rigidbody>();
+        rb.AddForce(spawnBullet.forward * speed, ForceMode.Impulse);
+        Destroy(newBullet, 1.0f);
     }
 }

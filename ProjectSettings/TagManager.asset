@@ -9,6 +9,8 @@ TagManager:
   - Door
   - Roof
   - Floor
+  - Bullet
+  - Enemy
   layers:
   - Default
   - TransparentFX
