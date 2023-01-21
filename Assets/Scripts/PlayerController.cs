@@ -37,7 +37,10 @@ public class PlayerController : MonoBehaviour
             Rotation(move);
         }
 
-        
+        velocity.y = -2f;
+        characterController.Move(velocity * Time.deltaTime);
+
+
     }
     void Rotation(Vector3 move)
     {

@@ -66,6 +66,8 @@ public class AI : MonoBehaviour
     {
 
         enemy.destination = nodo[index].position;
+        animationEnemy.SetFloat("XSpeed", 1.0f);
+        animationEnemy.SetFloat("YSpeed", 0.01f);
         if (Vector3.Distance(transform.position, nodo[index].position) <= distanceToFollowPath)
         {
             if (nodo[index] != nodo[nodo.Length - 1])
@@ -105,11 +107,11 @@ public class AI : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Bullet2");
+        //Debug.Log("Bullet2");
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            Debug.Log("Bullet");
-            life = life - 1;
+            //Debug.Log("Bullet");
+            life = life - 10;
             Debug.Log(life);
             if(life <= 0)
             {
