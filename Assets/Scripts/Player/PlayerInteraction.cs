@@ -26,6 +26,14 @@ public class PlayerInteraction : MonoBehaviour
     }
     void Objects()
     {
+        if (GameManager.Instance.key)
+        {
+            objecto[3].SetActive(true);
+        }
+        else
+        {
+            objecto[3].SetActive(false);
+        }
         if (player.actions["Key"].WasPressedThisFrame() && GameManager.Instance.key)
         {
 
