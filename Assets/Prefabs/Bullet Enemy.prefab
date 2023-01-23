@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1752048260673601627}
   - component: {fileID: 1752048260673601626}
+  - component: {fileID: -6836776123814008340}
   m_Layer: 0
   m_Name: Bullet Enemy
   m_TagString: Enemy
@@ -49,6 +50,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-6836776123814008340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376788878009752289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c668111bf556517479903f874825c207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8382552250457158020
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,6 +73,7 @@ GameObject:
   - component: {fileID: 5879746580210969180}
   - component: {fileID: 2411282158623076465}
   - component: {fileID: 2656155958446798139}
+  - component: {fileID: 1957199445589099118}
   m_Layer: 0
   m_Name: polySurface1
   m_TagString: Untagged
@@ -132,3 +146,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1957199445589099118
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8382552250457158020}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0009409399, y: 0.00094094034, z: 0.0014497278}
+  m_Center: {x: -9.313226e-10, y: 4.802132e-10, z: 0.0000000014260875}

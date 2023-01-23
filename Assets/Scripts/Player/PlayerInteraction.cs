@@ -30,10 +30,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             objecto[3].SetActive(true);
         }
-        else
-        {
-            objecto[3].SetActive(false);
-        }
+        
         if (player.actions["Key"].WasPressedThisFrame() && GameManager.Instance.key)
         {
 
@@ -112,7 +109,7 @@ public class PlayerInteraction : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log(other.name);
+        //Debug.Log(other.name);
         if (GameManager.Instance.key && keyStatus)
         {
             if (other.CompareTag("Deck"))
@@ -149,6 +146,7 @@ public class PlayerInteraction : MonoBehaviour
             roof.SetActive(true);
         }
     }
+
 
 }
 

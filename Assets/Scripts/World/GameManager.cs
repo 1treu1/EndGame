@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public bool key = false;
     public bool gun1 = true;
     public bool gun2 = false;
-    public float health;
+    public float health = 100;
     public float maxHealth = 100f;
     
     
@@ -26,5 +26,7 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
     }
-   
+
+
+
 }

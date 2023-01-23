@@ -25,14 +25,14 @@ public class PlayerController : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal"); //X
         float verticalInput = Input.GetAxis("Vertical"); //Z
         */
-        Vector3 move = playerinput.actions["Move"].ReadValue<Vector3>();
-        //Vector3 move = new Vector3(horizontalInput,0, verticalInput);
+        Vector2 input = playerinput.actions["Move"].ReadValue<Vector2>();
+        Vector3 move = new Vector3(input.x,0, input.y);
         characterController.Move(move * speed * Time.deltaTime);
         move.Normalize();
         //Rotacion del personaje
         transform.Translate(move * rotationSpeed * Time.deltaTime, Space.World);
-        
-        if(move != Vector3.zero)
+
+        if (move != Vector3.zero)
         {
             Rotation(move);
         }

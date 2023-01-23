@@ -32,7 +32,7 @@ public class Shoot : MonoBehaviour
             OnShoot();
             if (Time.time > shotRateTime)
             {
-                Debug.Log("Fire");
+                //Debug.Log("Fire");
                 Fire();
                 shotRateTime = Time.time + shotRate;
             }
