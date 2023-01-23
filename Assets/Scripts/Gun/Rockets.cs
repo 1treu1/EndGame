@@ -55,6 +55,7 @@ public class Rockets : MonoBehaviour
        
         if (player.actions["Shoot"].WasPressedThisFrame())
         {
+            Debug.Log("Fire");
             if (Time.time > shotRateTime)
             {
                 FireWeapon();

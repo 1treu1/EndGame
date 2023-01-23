@@ -73,12 +73,10 @@ public class PlayerInteraction : MonoBehaviour
             }
             else
             {
-                objecto[0].SetActive(false);
+
                 objecto[1].SetActive(false);
-                objecto[2].SetActive(false);
                 button[0].SetActive(false);
-                button[1].SetActive(false);
-                button[2].SetActive(false);
+
             }
         }
         if (player.actions["Gun2"].WasPressedThisFrame() && GameManager.Instance.gun2)
@@ -98,12 +96,10 @@ public class PlayerInteraction : MonoBehaviour
             }
             else
             {
-                objecto[0].SetActive(false);
-                objecto[1].SetActive(false);
+
                 objecto[2].SetActive(false);
-                button[0].SetActive(false);
                 button[1].SetActive(false);
-                button[2].SetActive(false);
+
             }
         }
     }
