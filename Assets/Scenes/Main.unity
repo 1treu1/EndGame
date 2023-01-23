@@ -1225,6 +1225,7 @@ GameObject:
   - component: {fileID: 453317235}
   - component: {fileID: 453317237}
   - component: {fileID: 453317236}
+  - component: {fileID: 453317238}
   m_Layer: 5
   m_Name: Gun
   m_TagString: Untagged
@@ -1292,6 +1293,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453317234}
   m_CullTransparentMesh: 1
+--- !u!114 &453317238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453317234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ControlPath: <Gamepad>/buttonEast
 --- !u!1 &481331688
 GameObject:
   m_ObjectHideFlags: 0
@@ -2927,6 +2941,7 @@ GameObject:
   - component: {fileID: 939190032}
   - component: {fileID: 939190034}
   - component: {fileID: 939190033}
+  - component: {fileID: 939190035}
   m_Layer: 5
   m_Name: Key
   m_TagString: Untagged
@@ -2994,6 +3009,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 939190031}
   m_CullTransparentMesh: 1
+--- !u!114 &939190035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939190031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ControlPath: <Gamepad>/buttonWest
 --- !u!4 &974779181 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7138270337970415097, guid: 50de6d654e69a49499b45aae81f83bc5, type: 3}
@@ -4905,6 +4933,7 @@ GameObject:
   - component: {fileID: 2108812805}
   - component: {fileID: 2108812807}
   - component: {fileID: 2108812806}
+  - component: {fileID: 2108812808}
   m_Layer: 5
   m_Name: Rocket
   m_TagString: Untagged
@@ -4972,6 +5001,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108812804}
   m_CullTransparentMesh: 1
+--- !u!114 &2108812808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108812804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ControlPath: <Gamepad>/buttonNorth
 --- !u!4 &543450653545235452 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8799714371788632427, guid: 9d86e52207626ec48934830477d31b4c, type: 3}
@@ -6291,6 +6333,10 @@ PrefabInstance:
     - target: {fileID: 8799714371788632427, guid: 9d86e52207626ec48934830477d31b4c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9048968483689348733, guid: 9d86e52207626ec48934830477d31b4c, type: 3}
+      propertyPath: speed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d86e52207626ec48934830477d31b4c, type: 3}

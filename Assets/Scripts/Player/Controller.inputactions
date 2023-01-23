@@ -97,7 +97,7 @@
                 {
                     "name": "",
                     "id": "fed58e56-7dd2-438e-9f90-de91b2fd2989",
-                    "path": "<Touchscreen>/primaryTouch/press",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -119,7 +119,7 @@
                 {
                     "name": "",
                     "id": "38dff9a0-74cf-4754-9737-65fa2ee07a8e",
-                    "path": "<Touchscreen>/touch0/press",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -141,7 +141,7 @@
                 {
                     "name": "",
                     "id": "0001c56f-8611-4b37-83de-94708f47f9b9",
-                    "path": "<Touchscreen>/touch2/press",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
